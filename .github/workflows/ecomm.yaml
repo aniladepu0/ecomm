@@ -14,3 +14,16 @@ jobs:
      run: |
         pwd
         ss -ntpl
+
+  ecomm:
+   runs-on: self-hosted
+   steps: 
+   - name: Checkout
+     uses: actions/checkout@v5.0.0
+   - name: remove nginx
+     run:  sudo rm -rf /var/www/html/*
+   - name: importing ecomm
+     run: sudo cp -rf ./* /var/www/html/
+   - name: restart nginx
+     run: sudo systemctl restart nginx
+   
