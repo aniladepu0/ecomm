@@ -1,0 +1,16 @@
+name: ecomm workflow
+on: 
+ push
+
+jobs:
+  ecomm-workflow:
+   runs-on: self-hosted
+   steps: 
+   - name: apt-get update
+     run: sudo apt-get update
+   - name: nginx installing 
+     run: sudo apt-get install nginx -y
+   - name: pathway and ports
+     run: |
+        pwd
+        ss -ntpl
